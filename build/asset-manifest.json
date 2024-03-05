@@ -1,16 +1,14 @@
 {
   "files": {
     "main.css": "/Test-todo-for-Volt/static/css/main.36aa4b4c.css",
-    "main.js": "/Test-todo-for-Volt/static/js/main.245c0f37.js",
-    "static/js/453.ed3810f9.chunk.js": "/Test-todo-for-Volt/static/js/453.ed3810f9.chunk.js",
+    "main.js": "/Test-todo-for-Volt/static/js/main.7f9ec7a1.js",
     "static/media/icon.svg": "/Test-todo-for-Volt/static/media/icon.78871d7c1cbe2a5f8da7d5a197e89d81.svg",
     "index.html": "/Test-todo-for-Volt/index.html",
     "main.36aa4b4c.css.map": "/Test-todo-for-Volt/static/css/main.36aa4b4c.css.map",
-    "main.245c0f37.js.map": "/Test-todo-for-Volt/static/js/main.245c0f37.js.map",
-    "453.ed3810f9.chunk.js.map": "/Test-todo-for-Volt/static/js/453.ed3810f9.chunk.js.map"
+    "main.7f9ec7a1.js.map": "/Test-todo-for-Volt/static/js/main.7f9ec7a1.js.map"
   },
   "entrypoints": [
     "static/css/main.36aa4b4c.css",
-    "static/js/main.245c0f37.js"
+    "static/js/main.7f9ec7a1.js"
   ]
 }

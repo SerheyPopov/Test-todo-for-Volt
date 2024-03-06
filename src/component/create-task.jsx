@@ -1,29 +1,29 @@
 import { useDispatch } from "react-redux";
-import { addToDo } from "../redax/TodoSlice";
+import { addToDo } from "../redax/todo-slice";
 import { useState } from "react";
-import { getCurrentDay } from "../utils/getCurrentDay";
+import { getCurrentDay } from "../utils/get-current-day";
 
-const CreateTask = () => {
-	const [text, setText] = useState("");
-	const [title, setTitle] = useState("");
+export const CreateTask = () => {
+  const [text, setText] = useState("");
+  const [title, setTitle] = useState("");
 
-	const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-	const handleFieldSubmit = () => {
-		if (text !== "" && title !== "") {
-			dispatch(
-				addToDo({
-					title: title,
-					todo: text,
-					id: Date.now(),
-					status: "Not completed",
-					time: getCurrentDay(),
-				})
-			);
-		}
-	};
+  const handleFieldSubmit = () => {
+    if (text !== "" && title !== "") {
+      dispatch(
+        addToDo({
+          title,
+          "todo": text,
+          "id": Date.now(),
+          "status": "Not completed",
+          "time": getCurrentDay(),
+        }),
+      );
+    }
+  };
 
-	return (
+  return (
 		<div className="flex justify-center  mr-10 h-full w-[460px]">
 			<div className="w-full  bg-white rounded-lg overflow-hidden shadow-md">
 				<div className="px-6 py-4">
@@ -41,7 +41,7 @@ const CreateTask = () => {
 								minLength="3"
 								maxLength="35"
 								required
-								onChange={(e) => setTitle(e.target.value)}
+								onChange={(event) => setTitle(event.target.value)}
 							/>
 						</div>
 						<div className="mb-4">
@@ -57,7 +57,7 @@ const CreateTask = () => {
 								minLength="3"
 								maxLength="100"
 								required
-								onChange={(e) => setText(e.target.value)}
+								onChange={(event) => setText(event.target.value)}
 							/>
 						</div>
 						<button
@@ -71,7 +71,5 @@ const CreateTask = () => {
 				</div>
 			</div>
 		</div>
-	);
+  );
 };
-
-export default CreateTask;

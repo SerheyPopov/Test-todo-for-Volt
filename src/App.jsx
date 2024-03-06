@@ -1,9 +1,9 @@
-import CreateTask from "./component/CreateTask";
-import TodoSortList from "./component/TodoSortList";
-import { getCurrentDay } from "./utils/getCurrentDay";
+import { CreateTask as _CreateTask } from "./component/create-task";
+import { TodoSortList as _TodoSortList } from "./component/todo-sort-list";
+import { getCurrentDay } from "./utils/get-current-day";
 
-const App = () => {
-	return (
+export const App = () => {
+  return (
 		<div className="pt-10 flex justify-center  min-h-screen  bg-gradient-to-r from-[#edfcff] to-[#dbf6ff]">
 			<div className="w-[1200px] ">
 				<div className="mb-5 rounded-lg h-20  bg-gradient-to-r from-[#2ff1fd] to-[#52bffa] flex items-center justify-between px-10">
@@ -12,12 +12,10 @@ const App = () => {
 				</div>
 
 				<div className="flex justify-center">
-					<CreateTask />
-					<TodoSortList />
+					<_CreateTask />
+					<_TodoSortList />
 				</div>
 			</div>
 		</div>
-	);
+  );
 };
-
-export default App;

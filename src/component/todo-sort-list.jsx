@@ -1,21 +1,21 @@
 import { useSelector } from "react-redux";
-import ToDoList from "./ToDoList";
+import { ToDoList as _ToDoList } from "./to-do-list";
 import { useEffect, useState } from "react";
 
-const TodoSortList = () => {
-	const [sortedList, setSortedList] = useState([]);
-	const todo = useSelector((state) => state.todo);
+export const TodoSortList = () => {
+  const [sortedList, setSortedList] = useState([]);
+  const todo = useSelector((state) => state.todo);
 
-	useEffect(() => {
-		setSortedList(todo);
-	}, [todo]);
+  useEffect(() => {
+    setSortedList(todo);
+  }, [todo]);
 
-	const taskCounter = (status) => {
-		const counter = todo.filter((elem) => elem.status === status);
-		return counter.length;
-	};
+  const taskCounter = (status) => {
+    const counter = todo.filter((elem) => elem.status === status);
+    return counter.length;
+  };
 
-	return (
+  return (
 		<div className="flex justify-center">
 			<div className="w-[700px]">
 				<div className=" flex  gap-4">
@@ -30,7 +30,7 @@ const TodoSortList = () => {
 						type="button"
 						name="1"
 						className="w-full h-10 bg-green-400 text-white font-bold py-2 px-4 rounded hover:bg-green-500"
-						onClick={() => setSortedList(todo.filter((item) => item.status === "Completed"))}
+						onClick={() => setSortedList(todo.filter(({ status }) => status === "Completed"))}
 					>
 						Completed: {taskCounter("Completed")}
 					</button>
@@ -38,15 +38,14 @@ const TodoSortList = () => {
 						type="button"
 						name="2"
 						className="w-full h-10 bg-red-400 text-white font-bold py-2 px-4 rounded hover:bg-red-500"
-						onClick={() => setSortedList(todo.filter((item) => item.status === "Not completed"))}
+						onClick={() => setSortedList(todo.filter(({ status }) => status === "Not completed"))
+						}
 					>
 						Not Completed: {taskCounter("Not completed")}
 					</button>
 				</div>
-				<ToDoList list={sortedList} />
+				<_ToDoList list={sortedList} />
 			</div>
 		</div>
-	);
+  );
 };
-
-export default TodoSortList;

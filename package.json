@@ -21,8 +21,8 @@
 	},
 	"scripts": {
 		"start": "react-scripts start",
-		"build": "react-scripts build"
-		
+		"build": "react-scripts build",
+		"lint": "eslint ."
 	},
 	"eslintConfig": {
 		"extends": [
@@ -41,5 +41,9 @@
 			"last 1 firefox version",
 			"last 1 safari version"
 		]
+	},
+	"devDependencies": {
+		"@wemake-services/eslint-config-javascript": "^2.1.1",
+		"eslint": "^8.57.0"
 	}
 }

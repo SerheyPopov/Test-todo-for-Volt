@@ -1,28 +1,32 @@
 import { useDispatch } from "react-redux";
-import { editToDo, deleteToDo } from "../redax/TodoSlice";
+import { editToDo, deleteToDo } from "../redax/todo-slice";
 import Icon from "../img/svg/icon.svg";
 
-const ToDoList = ({ list }) => {
-	const dispatch = useDispatch();
+export const ToDoList = ({ list }) => {
+  const dispatch = useDispatch();
 
-	const handleChangeStatus = (status, id) => {
-		let newStatus;
-		switch (status) {
-			case "Completed":
-				newStatus = "Not completed";
-				break;
-			case "Not completed":
-				newStatus = "Completed";
-				break;
+  const handleChangeStatus = (status, id) => {
+    let newStatus;
+    const nCompleted = "Not completed";
+    switch (status) {
+      case "Completed": {
+        newStatus = nCompleted;
+        break;
+      }
+      case nCompleted: {
+        newStatus = "Completed";
+        break;
+      }
 
-			default:
-				newStatus = "Not completed";
-				break;
-		}
-		dispatch(editToDo({ status: newStatus, id }));
-	};
+      default: {
+        newStatus = nCompleted;
+        break;
+      }
+    }
+    dispatch(editToDo({ "status": newStatus, id }));
+  };
 
-	return (
+  return (
 		<div className="flex justify-center mt-5">
 			<ul className="mb-10 w-full">
 				{list.map(({ id, status, title, todo, time }) => (
@@ -44,9 +48,7 @@ const ToDoList = ({ list }) => {
 
 							<p
 								className={
-									status === "Completed"
-										? "mt-2 break-words line-through text-gray-400"
-										: "mt-2 break-words"
+									status === "Completed" ? "mt-2 break-words line-through text-gray-400" : "mt-2 break-words"
 								}
 							>
 								{todo}
@@ -55,7 +57,7 @@ const ToDoList = ({ list }) => {
 								<p className="mt-4 text-sm text-gray-400">{time}</p>
 								<button type="button" className="mt-4" onClick={() => dispatch(deleteToDo(id))}>
 									<svg className="w-6 h-6 hover:fill-red-500">
-										<use href={Icon + "#trash"} />
+										<use href={`${Icon}#trash`} />
 									</svg>
 								</button>
 							</div>
@@ -64,7 +66,5 @@ const ToDoList = ({ list }) => {
 				))}
 			</ul>
 		</div>
-	);
+  );
 };
-
-export default ToDoList;
